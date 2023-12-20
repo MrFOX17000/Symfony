@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Liste de films{% endblock %}
+
+{% block body %}
+<style>
+    .liste_film { }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="liste_film">
+
+
+<form action="{{path('app_home')}}" method="POST"> 
+<span>Vous avez recherché : </span>
+<input type="text" name="q" id="recherche" placeholder="Votre titre de film">
+<button for="recherche">Chercher</button>
+</form>
+
+<ul>
+{% for all in movieList %}
+    <li>
+        <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{all.poster_path}}">
+    </li>
+{% endfor %}
+</ul>
+</div>
+
+
+{% endblock %}
